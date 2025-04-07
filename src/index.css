@@ -50,6 +50,12 @@ a:hover {
   color: var(--primary);
 }
 
+.btn-navbar{
+  background-color: #010203;
+  color: #ffffff;
+  border-style: none;
+}
+
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
