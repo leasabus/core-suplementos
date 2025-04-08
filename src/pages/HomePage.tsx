@@ -4,8 +4,14 @@ import ProductsGrid from "../components/ProductsGrid";
 import Promotions from "../components/Promotions";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import { useState } from "react";
+import { getFilteredProducts } from "../utils/filterProductsByCategory";
 
 export default function HomePage() {
+  const [selectedCategory, setSelectedCategory] = useState("proteinas");
+
+  console.log("Selected category", selectedCategory);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -13,9 +19,9 @@ export default function HomePage() {
       <main className="flex-1">
         <HeroSection />
 
-        <Categories />
+        <Categories onCategoryChange={setSelectedCategory} />
 
-        <ProductsGrid />
+        <ProductsGrid products={getFilteredProducts(selectedCategory)} />
 
         <Promotions />
       </main>
