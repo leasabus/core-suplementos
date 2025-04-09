@@ -1,6 +1,11 @@
 import { ChevronLeft, ChevronRight, Search } from "lucide-react";
+import { categories } from "../data/categories";
 
-const Categories = () => {
+interface Props {
+  onCategoryChange: (category: string) => void;
+}
+
+const Categories = ({ onCategoryChange }: Props) => {
   return (
     <section className="container mx-auto px-4 py-6">
       <div className="p-4 md:p-12 md:w-1/2">
@@ -18,11 +23,15 @@ const Categories = () => {
       </div>
       <div className="flex justify-between items-center">
         <div className="flex space-x-6 overflow-x-auto pb-2 scrollbar-hide">
-          <button className="category-button">Proteinas</button>
-          <button className="category-button">Creatinas</button>
-          <button className="category-button">Barras</button>
-          <button className="category-button">Otros</button>
-          <button className="category-button active">Ver todos</button>
+          {categories.map((cat) => (
+            <button
+              key={cat.id}
+              className="category-button"
+              onClick={() => onCategoryChange(cat.name)}
+            >
+              {cat.name.toLocaleUpperCase()}
+            </button>
+          ))}
         </div>
         <div className="flex space-x-2">
           <button className="p-1 border rounded">
