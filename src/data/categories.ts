@@ -13,7 +13,7 @@ export const categories: Category[] = [
   },
   {
     id: "3",
-    name: "Otros",
+    name: "otros",
     active: true,
   },
 ];

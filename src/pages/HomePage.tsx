@@ -10,8 +10,6 @@ import { getFilteredProducts } from "../utils/filterProductsByCategory";
 export default function HomePage() {
   const [selectedCategory, setSelectedCategory] = useState("proteinas");
 
-  console.log("Selected category", selectedCategory);
-
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
